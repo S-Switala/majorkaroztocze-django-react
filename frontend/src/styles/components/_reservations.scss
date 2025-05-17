@@ -1,0 +1,129 @@
+@use '../utils/mixins' as *;
+@use '../utils/variables' as *;
+
+.reservations {
+
+    .header {
+        position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+        @include for-small {
+            background-image: url('/img/reservation_mobile.webp');
+        }
+    
+        @include for-medium {
+            background-image: url('/img/reservation_mobile.webp');
+        }
+    
+        @include for-large {
+            background-image: url('/img/reservation_pc.webp');
+    
+        }
+    
+    }
+}
+
+.reservation-form {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    .form-label {
+        display: block;
+        font-size: 16px;
+        font-weight: bold;
+        color: $text-color;
+        margin-bottom: 5px;
+    }
+
+    .form-input,
+    .form-select {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        transition: 0.3s ease-in-out;
+
+        &:focus {
+            border-color: $primary-color;
+            outline: none;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+        }
+    }
+
+    .loading-text {
+        font-size: 14px;
+        color: $CTA-color;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .info-text {
+        font-size: 14px;
+        color: $error-color;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .total-price {
+        font-size: 20px;
+        font-weight: bold;
+        color: $secondary-color;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .submit-btn {
+        margin-top: 20px;
+        width: 100%;
+        padding: 10px;
+        font-size: 18px;
+        font-weight: bold;
+        color: white;
+        background: $CTA-color;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+
+        &:hover {
+            background: darken($CTA-hover, 10%);
+        }
+
+        &:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+    }
+
+    @include for-small {
+        margin: 30px 10px;
+
+        .reservation-form {
+            padding: 15px;
+        }
+    
+        .form-title {
+            font-size: 20px;
+        }
+    
+        .form-label {
+            font-size: 14px;
+        }
+    
+        .form-input,
+        .form-select {
+            font-size: 14px;
+        }
+    
+        .submit-btn {
+            font-size: 16px;
+        }
+    }
+}

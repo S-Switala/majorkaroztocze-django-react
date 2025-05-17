@@ -1,0 +1,121 @@
+@use '../utils/mixins' as *;
+@use '../utils/variables' as *;
+
+.footer {
+	margin-top: 15px;
+	padding: 12px;
+	color: $background-color;
+	font-size: clamp(12px, 2vw, 15px);
+	background-color: $text-color;
+
+	.wrapper {
+		display: flex;
+	}
+
+	@include for-small {
+		.wrapper {
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+
+			.name-box {
+				padding: 10px;
+				text-align: center;
+
+				.title {
+					font-weight: bold;
+				}
+			}
+
+			.contact-box {
+				padding: 10px;
+				text-align: center;
+
+				.title {
+					font-weight: bold;
+				}
+			}
+			hr {
+				width: 100%;
+			}
+
+			.copyright {
+				margin-top: 20px;
+			}
+		}
+	}
+
+	@include for-medium {
+		.wrapper {
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+
+			.name-box {
+				padding: 10px;
+				text-align: center;
+
+				.title {
+					font-weight: bold;
+				}
+			}
+
+			.contact-box {
+				padding: 10px;
+				text-align: center;
+
+				.title {
+					font-weight: bold;
+				}
+			}
+			hr {
+				width: 100%;
+			}
+
+			.copyright {
+				margin-top: 20px;
+			}
+		}
+	}
+
+	@include for-large {
+		.wrapper {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+
+			.footer-box {
+				padding: 20px;
+				display: flex;
+				flex-direction: row;
+                justify-content: space-around;
+                width: 100%;
+
+				.name-box {
+					text-align: center;
+
+					.title {
+						font-weight: bold;
+					}
+				}
+
+				.contact-box {
+					text-align: center;
+
+					.title {
+						font-weight: bold;
+					}
+				}
+			}
+
+			hr {
+				width: 100%;
+			}
+
+			.copyright {
+				margin-top: 20px;
+			}
+		}
+	}
+}

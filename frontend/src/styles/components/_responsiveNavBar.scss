@@ -1,0 +1,136 @@
+@use '../utils/variables' as *;
+
+.desktop-nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 80px;
+	width: 100%;
+	background-color: $primary-color;
+	z-index: 1000;
+	font-family: "Arial", sans-serif;
+
+	.wrapper {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		background-color: $primary-color;
+
+		.logo {
+			flex: 0 1 auto;
+			width: 80px;
+			height: 80px;
+
+			a {
+				display: inline-block;
+			}
+
+			.logo-img {
+				width: 100%;
+				height: 100%;
+				object-fit: contain;
+				cursor: pointer;
+			}
+		}
+
+		.nav-links {
+			flex: 1;
+			display: flex;
+			justify-content: flex-end;
+
+			.nav-link {
+				color: $white-text-color;
+				font-weight: bold;
+				font-size: 16px;
+
+				font-family: "Arial", sans-serif;
+				padding: 15px 8px;
+				transition: background-color 0.3s ease;
+
+				&:hover {
+					background-color: $secondary-color;
+				}
+			}
+		}
+	}
+}
+
+.mobile-nav {
+	position: relative;
+	z-index: 1000;
+
+	.icon-button {
+		position: fixed;
+		top: 10px;
+		right: 10px;
+		padding: 10px;
+		color: $primary-color;
+		background: $shadow;
+		border-radius: 5px;
+		border: none;
+		cursor: pointer;
+	}
+
+	.drawer {
+		position: fixed;
+		top: 0;
+		left: -100%;
+		width: 100vw;
+		height: 100vh;
+		background-color: $primary-color;
+		color: $white-text-color;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		transition: left 0.3s ease-in-out;
+	}
+
+	.drawer.open {
+		left: 0;
+	}
+
+	.backdrop {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		background-color: rgba(0, 0, 0, 0.5);
+		background-color: red;
+		z-index: 999;
+		display: none;
+	}
+
+	.backdrop.show {
+		display: block;
+	}
+
+	.nav-links {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+
+		li {
+			margin: 20px 0;
+			text-align: center;
+		}
+
+		a {
+			text-decoration: none;
+			color: $white-text-color;
+			font-size: 35px;
+		}
+	}
+
+	.close-button {
+		position: absolute;
+		padding: 10px;
+		top: 0px;
+		right: 10px;
+		color: $white-text-color;
+		font-size: 80px;
+		cursor: pointer;
+	}
+}

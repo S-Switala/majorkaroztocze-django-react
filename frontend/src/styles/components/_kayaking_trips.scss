@@ -1,0 +1,195 @@
+@use '../utils/mixins' as *;
+@use '../utils/variables' as *;
+
+.kayaking_trips {
+	.header {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		background-size: cover;
+		background-position: center;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 1;
+			background: $shadow;
+		}
+
+		.hero-content {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+			z-index: 2;
+
+			.h1 {
+				color: $primary-color;
+				z-index: 2;
+			}
+
+			.hero-text {
+				color: $white-text-color;
+				z-index: 2;
+			}
+
+			.hero-button {
+				color: $white-text-color;
+				background-color: $CTA-color;
+				z-index: 2;
+
+				&:focus {
+					background: darken($CTA-hover, 10%)
+				}
+			}
+		}
+
+		@include for-small {
+			height: 600px;
+			background-image: url('/img/splywy-kajakowe_mobile.jpg');
+
+			.hero-content {
+				padding-top: 70px;
+
+				.h1 {
+					font-size: 2.2rem;
+				}
+
+				.hero-text {
+					padding: 10px;
+					font-size: 1.4rem;
+				}
+
+				.hero-button {
+					margin-top: 20px;
+					padding: 14px;
+					border-radius: 15px;
+					font-size: 1.6rem;
+				}
+			}
+		}
+
+		@include for-medium {
+			height: 100vh;
+			background-image: url('/img/splywy-kajakowe_mobile.jpg');
+
+			.hero-content {
+				padding-top: 30px;
+
+				.h1 {
+					font-size: 2.2rem;
+				}
+
+				.hero-text {
+					padding: 10px;
+					font-size: 1.4rem;
+				}
+
+				.hero-button {
+					margin-top: 15px;
+					padding: 14px;
+					border-radius: 15px;
+					font-size: 1.6rem;
+				}
+			}
+		}
+
+		@include for-large {
+			height: 400px;
+			background-image: url('/img/splywy-kajakowe_pc.jpg');
+
+			.hero-content {
+				padding: 50px;
+
+				.h1 {
+					font-size: 2.2rem;
+				}
+
+				.hero-text {
+					padding: 10px;
+					font-size: 1.4rem;
+				}
+
+				.hero-button {
+					margin-top: 15px;
+					padding: 14px;
+					border-radius: 15px;
+					font-size: 1.6rem;
+					transition: background-color 0.3s ease;
+
+					&:hover {
+						background: darken($CTA-hover, 10%)
+					}
+				}
+			}
+		}
+	}
+
+	.kayaking-offer {
+		display: flex;
+		flex-direction: column;
+
+		.h3 {
+			text-align: center;
+			color: $secondary-color;
+			font-weight: 1.5rem;
+			padding: clamp(10px, 2vw, 20px);
+		}
+
+		.offer-text {
+			text-align: center;
+		}
+
+		.route {
+			text-align: center;
+
+			.trail {
+				font-weight: bold;
+			}
+		}
+
+		@include for-small {
+			.offer-text {
+				padding: 0 16px;
+			}
+
+			.route {
+				padding: 0 16px;
+			}
+		}
+
+		@include for-medium {
+			.offer-text {
+				padding: 10px 20px;
+			}
+
+			.route {
+				padding: 10px;
+			}
+		}
+
+		@include for-large {
+			.offer-text {
+				padding: 10px;
+				font-size: 1.2rem;
+			}
+
+			.route {
+				padding: 10px;
+				font-size: 1.2rem;
+			}
+
+			.kayak-map-box{
+				width: 600px;
+
+			}
+		}
+	}
+}

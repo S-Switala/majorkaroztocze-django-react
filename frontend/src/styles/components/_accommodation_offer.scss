@@ -1,0 +1,78 @@
+@use '../utils/mixins' as *;
+@use '../utils/variables' as *;
+
+.accommodation_offer {
+	.header {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		.h1 {
+			position: relative;
+			color: $primary-color;
+			z-index: 2;
+		}
+
+		@include for-small {
+			background-image: url('/img/noclegi-mobile.webp');
+		}
+
+		@include for-medium {
+			background-image: url('/img/noclegi-mobile.webp');
+		}
+
+		@include for-large {
+			height: 400px;
+			background-image: url('/img/noclegi-pc.webp');
+			background-position: center bottom;
+		}
+	}
+
+	.accommodation_offer-box {
+		display: flex;
+		flex-direction: column;
+
+		.offer-text {
+			text-align: center;
+			padding: clamp(10px, 2vw, 20px);
+		}
+
+		.accommodation-description {
+			margin: 0;
+			padding: 10px clamp(10px, 2vw, 20px);
+			text-align-last: left;
+		}
+
+		.description-heading {
+			text-align: center;
+			font-weight: bold;
+			padding: clamp(10px, 2vw, 20px);
+			font-size: clamp(19px, 2vw, 24px);
+		}
+
+		.carousel {
+			max-height: 100vh;
+			width: auto;
+			margin: 0 auto; // Wycentrowanie karuzeli
+			overflow: hidden; // Zapobieganie rozciąganiu zawartości
+
+			img {
+				width: 100%;
+				height: auto;
+				aspect-ratio: 5 / 4; // Obrazy zawsze w proporcjach 5:4
+				object-fit: cover; // Dopasowanie obrazu do kontenera (przycina jeśli trzeba)
+			}
+
+			@include for-medium {
+				width: 600px;
+				height: 480px;
+			}
+
+			@include for-large {
+				width: 600px;
+				height: 480px;
+			}
+		}
+	}
+}

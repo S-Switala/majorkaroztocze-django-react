@@ -1,0 +1,21 @@
+@use './variables' as *;
+// Media query dla małych ekranów
+@mixin for-small {
+	@media (max-width: $breakpoint-small) {
+		@content;
+	}
+}
+
+// Media query dla średnich ekranów
+@mixin for-medium {
+	@media (min-width: $breakpoint-small) and (max-width: $breakpoint-medium) {
+		@content;
+	}
+}
+
+// Media query dla dużych ekranów
+@mixin for-large {
+	@media (min-width: $breakpoint-medium) {
+		@content;
+	}
+}

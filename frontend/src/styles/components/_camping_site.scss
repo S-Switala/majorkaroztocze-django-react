@@ -1,0 +1,38 @@
+@use '../utils/mixins' as *;
+@use '../utils/variables' as *;
+
+.camping_site {
+	.header {
+		@include for-small {
+			background-image: url('/img/pole_namiotowe-mobile.webp');
+		}
+
+		@include for-medium {
+			background-image: url('/img/pole_namiotowe-mobile.webp');
+		}
+
+		@include for-large {
+			height: 400px;
+			background-image: url('/img/pole_namiotowe-pc.webp');
+			background-position: center bottom;
+		}
+	}
+
+	.wrapper {
+		padding: 30px 0;
+	}
+
+	.camping-description {
+		padding: 0 clamp(10px, 2vw, 20px);
+		.h3 {
+			text-align: center;
+			font-weight: 1.5rem;
+			color: $primary-color;
+			padding: 20px;
+		}
+
+		.camping-text {
+			text-align: center;
+		}
+	}
+}

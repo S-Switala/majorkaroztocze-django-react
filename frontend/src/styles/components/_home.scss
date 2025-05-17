@@ -1,0 +1,212 @@
+@use '../utils/mixins' as *;
+@use '../utils/variables' as *;
+
+.header {
+	@include for-small {
+		background-image: url('/img/hero-image-mobile.webp');
+	}
+
+	@include for-medium {
+		background-image: url('/img/hero-image-mobile.webp');
+	}
+
+	@include for-large {
+		height: 400px;
+		background-image: url('/img/hero-image-pc.webp');
+		// background-position: center bottom;
+	}
+}
+
+.offers {
+	display: flex;
+	flex-direction: column;
+
+	.offer-box {
+		.offer-content {
+			color: $text-color;
+
+			.offer-title {
+				text-align: center;
+				font-weight: bold;
+			}
+		}
+	}
+
+	@include for-small {
+		.offer-box {
+			padding-bottom: 15px;
+			.offer-content {
+				.offer-title {
+					padding: 10px;
+					font-size: 1.6rem;
+				}
+
+				.offer-text {
+					padding: 0 16px;
+					text-align: center;
+				}
+			}
+		}
+	}
+
+	@include for-medium {
+		.offer-box {
+			display: flex;
+			padding: 10px 0;
+
+			.offer-image-wrapper {
+				width: 50%;
+				padding: 10px;
+			}
+
+			.offer-content {
+				width: 50%;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+
+				.offer-title {
+					font-size: 2rem;
+				}
+
+				.offer-text {
+					padding: 20px;
+					text-align: center;
+				}
+			}
+		}
+	}
+
+	@include for-large {
+		.offer-box {
+			display: flex;
+			padding: 10px 0;
+			gap: 20px;
+
+			.offer-image-wrapper {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 50%;
+				flex: 1;
+
+				.offer-image {
+					width: 75%;
+				}
+			}
+
+			.offer-content {
+				width: 50%;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				flex: 1;
+
+				.offer-title {
+					font-size: 2.2rem;
+				}
+
+				.offer-text {
+					padding: 10px;
+					text-align: center;
+					font-size: 1.2rem;
+				}
+			}
+		}
+
+		.order-2 {
+			flex-direction: row-reverse;
+		}
+	}
+}
+
+.home-info {
+	display: flex;
+	flex-direction: column;
+	margin-top: 20px;
+
+	.home-info-text {
+		text-align: center;
+		color: $text-color;
+	}
+
+	@include for-small {
+		.h2 {
+			padding: 20px;
+		}
+
+		.home-info-text {
+			padding: 10px;
+		}
+	}
+
+	@include for-medium {
+		.h2 {
+			padding: 20px;
+		}
+
+		.home-info-text {
+			padding: 10px 12px;
+		}
+	}
+
+	@include for-large {
+		.home-info-text {
+			padding: 10px 16px;
+		}
+	}
+}
+
+.faq {
+	width: 100%;
+	margin: 0 auto;
+	padding: clamp(5px, 1vw, 10px);
+
+	.faq-item {
+		border-bottom: 1px solid #ddd;
+		color: $text-color;
+		transition: all 0.3s ease-in-out;
+
+		&.open {
+			.faq-question {
+				color: $text-color;
+				font-weight: bold;
+			}
+		}
+
+		.faq-question {
+			width: 100%;
+			color: $text-color;
+			font-weight: bold;
+			background: none;
+			border: none;
+			text-align: left;
+			cursor: pointer;
+			padding: 0 clamp(8px, 1vw, 12px);
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.faq-answer {
+			max-height: 0;
+			overflow: hidden;
+			transition: max-height 0.3s ease-in-out;
+			padding: 0 clamp(8px, 1vw, 12px);
+
+			p {
+				padding: 10px 0;
+			}
+		}
+
+		&.open .faq-answer {
+			max-height: 200px; // Dynamiczne ustawienie w React
+		}
+	}
+
+	@include for-large {
+		margin-bottom: 50px;
+	}
+}
